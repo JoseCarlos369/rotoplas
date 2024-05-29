@@ -1,0 +1,34 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProductList from "../components/ProductList.astro";
+
+// Ejemplo de productos
+const products = [
+  {
+    id: 1,
+    name: "Bujía",
+    description: "Bujía de encendido",
+    price: 4.99,
+    store: "1",
+  },
+  {
+    id: 2,
+    name: "Amortiguador",
+    description: "Amortiguador delantero",
+    price: 49.99,
+    store: "1",
+  },
+  {
+    id: 3,
+    name: "Disco de freno",
+    description: "Disco de freno delantero",
+    price: 29.99,
+    store: "2",
+  },
+];
+---
+
+<MainLayout>
+  <h1>Productos</h1>
+  <ProductList products={products} />
+</MainLayout>

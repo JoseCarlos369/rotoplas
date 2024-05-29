@@ -1,0 +1,17 @@
+---
+import ProductCard from "./ProductCard.astro";
+export interface Props {
+  products: Array<{
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    store: string;
+  }>;
+}
+const { products } = Astro.props;
+---
+
+<div class="product-list">
+  {products.map((product) => <ProductCard {...product} />)}
+</div>

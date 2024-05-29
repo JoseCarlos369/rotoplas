@@ -1,0 +1,34 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import ProductList from "../../components/ProductList.astro";
+
+const storeId = Astro.url.pathname.split("/").pop();
+const store = {
+  id: storeId,
+  name: "Tienda Ejemplo",
+  description: "Descripción de la tienda",
+};
+const products = [
+  {
+    id: 1,
+    name: "Bujía",
+    description: "Bujía de encendido",
+    price: 4.99,
+    store: storeId,
+  },
+  {
+    id: 2,
+    name: "Amortiguador",
+    description: "Amortiguador delantero",
+    price: 49.99,
+    store: storeId,
+  },
+];
+---
+
+<MainLayout>
+  <h1>{store.name}</h1>
+  <p>{store.description}</p>
+  <h2>Productos de la tienda</h2>
+  <ProductList products={products} />
+</MainLayout>

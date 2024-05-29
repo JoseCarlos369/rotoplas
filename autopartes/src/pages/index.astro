@@ -1,0 +1,134 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ProductCard from "../components/ProductCard.astro";
+---
+
+<MainLayout>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        ¡Encuentra las mejores autopartes para tu vehículo!
+      </h1>
+      <p class="hero-description">
+        Explora nuestra amplia selección de productos de alta calidad y
+        encuentra lo que necesitas para mantener tu vehículo en perfectas
+        condiciones.
+      </p>
+      <a href="/productos" class="hero-button">Ver productos</a>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <h2 class="section-title">Productos destacados</h2>
+    <div class="product-list">
+      <!-- Datos de muestra para productos destacados -->
+      <ProductCard
+        product={{
+          id: 1,
+          name: "Filtro de aire",
+          price: 25.99,
+          image: "/assets/product1.jpg",
+        }}
+      />
+      <ProductCard
+        product={{
+          id: 2,
+          name: "Pastillas de freno",
+          price: 35.99,
+          image: "/assets/product2.jpg",
+        }}
+      />
+      <ProductCard
+        product={{
+          id: 3,
+          name: "Batería de coche",
+          price: 89.99,
+          image: "/assets/product3.jpg",
+        }}
+      />
+      <ProductCard
+        product={{
+          id: 4,
+          name: "Llantas deportivas",
+          price: 199.99,
+          image: "/assets/product4.jpg",
+        }}
+      />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  /* Estilos para la sección hero */
+  .hero {
+    background-image: url("https://www.istockphoto.com/photo/mechanic-hand-checking-and-fixing-a-broken-car-in-car-service-garage-gm879696440-245172970?utm_source=pixabay&utm_medium=affiliate&utm_campaign=SRP_image_sponsored&utm_content=https%3A%2F%2Fpixabay.com%2Fes%2Fimages%2Fsearch%2Fautos%2F&utm_term=autoshttps://th.bing.com/th/id/OIP.lQ5KWpuwAKw8EenT-8oFCQHaEK?w=960&h=540&rs=1&pid=ImgDetMain");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-size: 1.25rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .hero-button:hover {
+    background-color: #555;
+  }
+
+  /* Estilos para la sección de productos destacados */
+  .featured-products {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Estilos para las tarjetas de productos */
+  .product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+</style>

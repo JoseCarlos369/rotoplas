@@ -1,0 +1,362 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<html lang="en">
+  <head>
+    <title>Marketplace de Autopartes</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  /* Estilos generales */
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Estilos del encabezado */
+  header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  /* Estilos del pie de página */
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  /* Estilos de navegación */
+  nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  nav a:hover {
+    color: #ffc107;
+  }
+
+  /* Estilos del contenido principal */
+  main {
+    padding: 2rem;
+  }
+
+  /* Estilos de tarjetas de productos y tiendas */
+  .product-card,
+  .store-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+  }
+
+  .product-card:hover,
+  .store-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Estilos de la lista de productos */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Estilos de la lista de tiendas */
+  .store-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* Estilos para la página de inicio */
+  .home-page {
+    text-align: center;
+  }
+
+  .home-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .home-page p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  /* Estilos para la página de detalles del producto */
+  .product-details-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .product-details-page .product-image {
+    max-width: 300px;
+    margin-right: 2rem;
+  }
+
+  .product-details-page .product-info {
+    flex: 1;
+  }
+
+  .product-details-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-details-page p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  /* Estilos para la página de detalles de la tienda */
+  .store-details-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .store-details-page .store-info {
+    flex: 1;
+  }
+
+  .store-details-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .store-details-page p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  /* Estilos para el formulario de inicio de sesión */
+  .login-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .login-form button:hover {
+    background-color: #555;
+  }
+
+  /* Estilos para el formulario de registro */
+  .register-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .register-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .register-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .register-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .register-form button:hover {
+    background-color: #555;
+  }
+
+  /* Estilos para el carrito de compras */
+  .cart-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .cart-page .cart-items {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .cart-page .cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .cart-page .cart-items li:last-child {
+    border-bottom: none;
+  }
+
+  .cart-page .cart-items li .item-details {
+    flex: 1;
+  }
+
+  .cart-page .cart-items li .item-details h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  .cart-page .cart-items li .item-details p {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #888;
+  }
+
+  .cart-page .cart-items li .item-details .quantity {
+    display: flex;
+    align-items: center;
+  }
+
+  .cart-page .cart-items li .item-details .quantity input {
+    width: 40px;
+    padding: 0.5rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 0.5rem;
+  }
+
+  .cart-page .cart-items li .item-details .quantity button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+
+  .cart-page .cart-items li .item-details .quantity button:hover {
+    color: #333;
+  }
+
+  .cart-page .cart-items li .item-details .price {
+    font-weight: bold;
+  }
+
+  .cart-page .total {
+    margin-top: 1rem;
+    text-align: right;
+  }
+
+  .cart-page .total span {
+    font-weight: bold;
+  }
+
+  /* Estilos para la página de contacto */
+  .contact-page {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-page h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-page p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .contact-page form {
+    margin-top: 1rem;
+  }
+
+  .contact-page label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-page input,
+  .contact-page textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .contact-page textarea {
+    height: 150px;
+  }
+
+  .contact-page button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .contact-page button:hover {
+    background-color: #555;
+  }
+</style>
