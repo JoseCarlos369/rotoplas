@@ -2,16 +2,16 @@
 export interface Props {
   id: number;
   name: string;
-  description: string;
   price: number;
+  image: string;
   store: string;
 }
-const { id, name, description, price, store } = Astro.props;
+const { id, name, price, image, store } = Astro.props;
 ---
 
 <div class="product-card">
   <h2><a href={`/product/${id}`}>{name}</a></h2>
-  <p>{description}</p>
+  <img src={image} alt={name} />
   <p>Precio: ${price}</p>
   <p>Tienda: <a href={`/store/${store}`}>{store}</a></p>
 </div>
